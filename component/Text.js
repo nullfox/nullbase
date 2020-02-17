@@ -8,9 +8,9 @@ import _ from 'lodash';
 
 import { parsePaddingMargin } from '../style/size';
 
-import Text from '../style/text';
+import TextBuilder from '../style/text';
 
-const propertyNames = Object.getOwnPropertyNames(Styles.Text.factory().constructor.prototype);
+const propertyNames = Object.getOwnPropertyNames(TextBuilder.factory().constructor.prototype);
 
 export default ({
   padding,
@@ -32,7 +32,7 @@ export default ({
 
                 return builder;
               },
-              Styles.Text.factory(),
+              TextBuilder.factory(),
             )
           ).toObject()
         ),
