@@ -21,7 +21,7 @@ const verticalScale = size => height / GUIDE_DIMENSION.HEIGHT * size;
 const moderateScale = (size, factor = 0.5) => size + (scale(size) - size) * factor;
 
 // REM (Good for text)
-const rem = (value, defaultRem = DEFAULT_REM) => parseFloat(value, 10) * defaultRem;
+const rem = (value, defaultRem = DEFAULT_FONT_SIZE) => parseFloat(value, 10) * defaultRem;
 
 const percentHeight = float => height * (float / 100);
 const percentWidth = float => width * (float / 100);
