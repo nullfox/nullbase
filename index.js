@@ -9,7 +9,9 @@ import Text from './style/text';
 
 import withStorage from './mst/withStorage';
 
+import NavbarScreen from './component/NavbarScreen';
 import Screen from './component/Screen';
+import Text from './component/Text';
 import View from './component/View';
 
 const Style = {
@@ -28,7 +30,9 @@ const MST = {
 };
 
 const Component = {
+  NavbarScreen,
   Screen,
+  Text,
   View,
 };
 
