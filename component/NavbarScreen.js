@@ -161,18 +161,18 @@ const NavbarScreen = ({
             )
             : titleConfig
         )}
-        tintColor={alpha(palette.get('background'), 0.5)}
+        tintColor={palette.get('navbar')}
         containerStyle={styles.container}
         leftButton={LeftComponent}
         rightButton={RightComponent}
       />
 
-      <Screen
+      <View
         pinchHorizontal
         {...rest}
       >
         {children}
-      </Screen>
+      </View>
     </Screen>
   );
 };
