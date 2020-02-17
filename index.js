@@ -1,6 +1,7 @@
 import * as mobx from 'mobx';
 import * as mobxReact from 'mobx-react-lite';
 import * as mst from 'mobx-state-tree';
+import * as middleware from 'mst-middlewares';
 
 import * as Color from './style/color';
 import * as Size from './style/size';
@@ -20,6 +21,7 @@ const Style = {
 const MST = {
   withStorage,
 
+  ...middleware,
   ...mobx,
   ...mobxReact,
   ...mst,
