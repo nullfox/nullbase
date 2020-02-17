@@ -1,8 +1,12 @@
+import * as mobx from 'mobx';
+import * as mobxReact from 'mobx-react-lite';
+import * as mst from 'mobx-state-tree';
+
 import * as Color from './style/color';
 import * as Size from './style/size';
 import Text from './style/text';
 
-import WithStorage from './mst/withStorage';
+import withStorage from './mst/withStorage';
 
 import Screen from './component/Screen';
 import View from './component/View';
@@ -14,7 +18,11 @@ const Style = {
 };
 
 const MST = {
-  WithStorage,
+  withStorage,
+
+  ...mobx,
+  ...mobxReact,
+  ...mst,
 };
 
 const Component = {
