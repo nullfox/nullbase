@@ -14,7 +14,7 @@ import Screen from './Screen';
 import Text from './Text';
 import View from './View';
 
-import Text from '../style/text';
+import TextBuilder from '../style/text';
 
 import { percentWidth } from '../style/size';
 
@@ -44,7 +44,7 @@ const styles = {
   },
 
   title: {
-    ...Text.factory()
+    ...TextBuilder.factory()
       .lightColor()
       .regular()
       .size('1.1rem')
