@@ -12,8 +12,6 @@ import writeTestId from 'react-native-testid';
 import { parsePaddingMargin } from '../style/size';
 import { palette } from '../style/color';
 
-import Header from './Screen/Header';
-
 const styles = {
   top: {
     flex: 0,
