@@ -161,6 +161,9 @@ const NavbarScreen = ({
             )
             : titleConfig
         )}
+        statusBar={{
+          hidden: true,
+        }}
         tintColor={palette.get('navbar')}
         containerStyle={styles.container}
         leftButton={LeftComponent}
