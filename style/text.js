@@ -2,7 +2,7 @@ import { rem } from './size';
 
 let defaultStyles = {
   color: 'rgb(35,35,35)',
-  fontFamily: 'Soleil',
+  // fontFamily: 'Soleil',
   fontSize: rem(1),
   // lineHeight: rem(1.2),
 };
