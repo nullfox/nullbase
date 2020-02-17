@@ -9,7 +9,12 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 
 import writeTestId from 'react-native-testid';
 
-import { parsePaddingMargin } from '../style/size';
+import {
+  percentWidth,
+  percentHeight,
+  parsePaddingMargin,
+} from '../style/size';
+
 import { palette } from '../style/color';
 
 const styles = {
