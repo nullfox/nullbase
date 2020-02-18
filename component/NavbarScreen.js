@@ -40,15 +40,6 @@ const styles = {
     },
   },
 
-  title: {
-    ...TextBuilder.factory()
-      .lightColor()
-      .regular()
-      .size('1.1rem')
-      .center()
-      .toObject(),
-  },
-
   container: {
     borderBottomWidth: 0,
   },
@@ -137,7 +128,14 @@ const NavbarScreen = ({
 }) => {
   const titleConfig = {
     title,
-    style: styles.title,
+    style: (
+      TextBuilder.factory()
+        .lightColor()
+        .regular()
+        .size('1.1rem')
+        .center()
+        .toObject()
+    ),
   };
 
   return (
