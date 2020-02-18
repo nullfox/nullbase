@@ -4,6 +4,7 @@ import * as mst from 'mobx-state-tree';
 import * as middleware from 'mst-middlewares';
 
 import * as ReactNavigation from '@react-navigation/native';
+import * as StackNavigation from '@react-navigation/stack';
 import * as BottomTabNavigation from '@react-navigation/bottom-tabs';
 
 import * as Color from './style/color';
@@ -44,6 +45,7 @@ const Component = {
 const Navigation = {
   ...ReactNavigation,
   ...BottomTabNavigation,
+  ...StackNavigation,
 };
 
 export {
