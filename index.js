@@ -8,6 +8,7 @@ import * as Size from './style/size';
 import TextBuilder from './style/text';
 
 import withStorage from './mst/withStorage';
+import createApplication from './mst/createApplication';
 
 import NavbarScreen from './component/NavbarScreen';
 import Screen from './component/Screen';
@@ -22,6 +23,7 @@ const Style = {
 
 const MST = {
   withStorage,
+  createApplication,
 
   ...middleware,
   ...mobx,

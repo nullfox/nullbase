@@ -147,6 +147,7 @@ const NavbarScreen = ({
     <Screen
       testId={testId}
       containerStyle={containerStyle || {}}
+      topInsetColor={palette.get('navbar')}
     >
       <Navbar
         title={(
