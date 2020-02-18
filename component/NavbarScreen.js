@@ -18,10 +18,7 @@ import TextBuilder from '../style/text';
 
 import { percentWidth } from '../style/size';
 
-import {
-  alpha,
-  palette,
-} from '../style/color';
+import { palette } from '../style/color';
 
 const styles = {
   button: {
@@ -172,6 +169,7 @@ const NavbarScreen = ({
       />
 
       <View
+        flex
         pinchHorizontal
         {...rest}
       >
