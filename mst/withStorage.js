@@ -83,6 +83,12 @@ const WithStorage = options => (
               }
             ));
 
+            patches.push({
+              op: 'replace',
+              path: '/loaded',
+              value: true,
+            });
+
             applyPatch(self, patches);
 
             loaded = true;
