@@ -3,6 +3,9 @@ import * as mobxReact from 'mobx-react-lite';
 import * as mst from 'mobx-state-tree';
 import * as middleware from 'mst-middlewares';
 
+import * as ReactNavigation from '@react-navigation/native';
+import * as BottomTabNavigation from '@react-navigation/bottom-tabs';
+
 import * as Color from './style/color';
 import * as Size from './style/size';
 import TextBuilder from './style/text';
@@ -38,8 +41,14 @@ const Component = {
   View,
 };
 
+const Navigation = {
+  ...ReactNavigation,
+  ...BottomTabNavigation,
+};
+
 export {
   Style,
   MST,
   Component,
+  Navigation,
 };
