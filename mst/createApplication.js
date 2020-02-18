@@ -27,10 +27,15 @@ export default (props = {}, name = 'Application') => (
     }))
     .actions((self) => {
       let navigator = false;
+      let resolver = false;
 
       return {
         setNavigator(nav) {
           navigator = nav;
+        },
+
+        setRouteResolver(res) {
+          resolver = res;
         },
   
         navigate(name, params = {}) {
@@ -48,7 +53,7 @@ export default (props = {}, name = 'Application') => (
             return setImmediate(() => self.navigateNext());
           }
   
-          return routeResolver.resolve(self);
+          return resolver.resolve();
         },
   
         navigateBack() {
