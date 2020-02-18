@@ -19,6 +19,7 @@
     "mst-middlewares": "^3.15.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.1",
     "react-native-navbar": "^2.1.0",
+    "react-native-screens": "^2.0.0-beta.7",
     "react-native-testid": "^1.0.0"
   },
   "peerDependencies": {
