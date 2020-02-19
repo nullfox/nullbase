@@ -52,7 +52,8 @@ const Wrapper = ({
       label
         ? (
           <LabelComponent
-            extraBold
+            bold
+            size="0.8rem"
             padding="0 0 6 0"
           >
             {label}

@@ -34,6 +34,7 @@ export default ({
     <Text
       bold
       color="white"
+      size="1.1rem"
       {...rest}
     >
       {text}
