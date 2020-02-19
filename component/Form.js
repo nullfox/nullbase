@@ -23,7 +23,7 @@ import * as Yup from 'yup';
 
 import _ from 'lodash';
 
-import Styles from '../Styles';
+import TextBuilder from '../style/text';
 
 const styles = {
   wrapper: {
@@ -46,7 +46,7 @@ const styles = {
     },
 
     input: {
-      ...Styles.Text.build()
+      ...TextBuilder.factory()
         .size('0.875rem')
         .toObject(),
       paddingHorizontal: 10,
@@ -58,38 +58,10 @@ const styles = {
     },
 
     error: {
-      ...Styles.Text.build()
+      ...TextBuilder.factory()
         .color('#dd0000')
         .size('0.75rem')
         .toObject(),
-    },
-  },
-
-  button: {
-    container: {
-      marginHorizontal: 10,
-    },
-
-    button: {
-      backgroundColor: Styles.Color.primary,
-    },
-
-    title: {
-      ...Styles.Text.build()
-        .color('#f1f1f1')
-        .bold()
-        .size('1rem')
-        .toObject(),
-    },
-
-    invert: {
-      button: {
-        backgroundColor: '#f1f1f1',
-      },
-
-      title: {
-        color: Styles.Color.primary,
-      },
     },
   },
 };
