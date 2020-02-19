@@ -169,7 +169,7 @@ class Form extends Component {
                           label={fields[key].label}
                           blurOnSubmit={!_.isUndefined(fields[key].blur) ? fields[key].blur : Platform.OS === 'android'}
                           ref={this.inputs.get(key)}
-                          errorMessage={formErrors[key]}
+                          error={formErrors[key]}
                           placeholder={fields[key].placeholder}
                           containerStyle={[
                             styles.input.container,
