@@ -183,48 +183,7 @@ class Form extends Component {
                           ]}
                           inputStyle={[styles.input.input, inputStyle || {}]}
                           errorStyle={styles.input.error}
-                          onChangeText={(text) => {
-                            if (fields[key].onChange) {
-                              fields[key].onChange(text);
-                            }
-
-                            props.handleChange(key)(text);
-                          }}
-                          onFocus={() => {
-                            if (fields[key].onFocus) {
-                              fields[key].onFocus();
-                            }
-                          }}
-                          onBlur={() => {
-                            if (fields[key].onBlur) {
-                              fields[key].onBlur();
-                            }
-
-                            setTimeout(() => props.handleBlur(key), 1);
-                          }}
-                          onSubmitEditing={() => {
-                            if (key !== _.last(fieldKeys)) {
-                              this.inputs.get(
-                                fieldKeys[_.indexOf(fieldKeys, key) + 1],
-                              ).current.focus();
-                            } else {
-                              props.submitForm();
-                            }
-                          }}
-                          value={props.values[key]}
-                          secureTextEntry={fields[key].secure || false}
-                          {...(fields[key].inputProps || {})}
-                          {
-                            ...(
-                              fields[key].testID
-                                ? {
-                                  testID: fields[key].testID,
-                                  accessible: true,
-                                  accessibilityLabel: fields[key].testID,
-                                }
-                                : {}
-                            )
-                          }
+                          
                         />
 
                         {fields[key].rightView || null}
