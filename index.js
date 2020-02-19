@@ -16,6 +16,7 @@ import createApplication from './mst/createApplication';
 
 import Button from './component/Button';
 import Form from './component/Form';
+import Input from './component/Input';
 import NavbarScreen from './component/NavbarScreen';
 import Screen from './component/Screen';
 import Text from './component/Text';
@@ -40,6 +41,7 @@ const MST = {
 const Component = {
   Button,
   Form,
+  Input,
   NavbarScreen,
   Screen,
   Text,
