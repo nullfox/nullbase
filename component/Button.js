@@ -10,7 +10,7 @@ import { palette } from '../style/color';
 import Text from './Text';
 
 export default ({
-  padding,
+  padding = 10,
   margin,
   style = {},
   text,
@@ -24,6 +24,7 @@ export default ({
       {
         borderRadius: 4,
         backgroundColor: backgroundColor || palette.get('primary'),
+        textAlign: 'center',
       },
       margin ? parsePaddingMargin(margin, 'margin') : {},
       padding ? parsePaddingMargin(padding) : {},
