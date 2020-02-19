@@ -16,7 +16,6 @@ const styles = {
   
     wrapper: {
       alignItems: 'center',
-      backgroundColor: Styles.Color.background,
       borderColor: 'rgb(179,173,165)',
       borderWidth: 1,
       borderRadius: 4,
@@ -52,6 +51,9 @@ const Wrapper = ({
     <View
       style={[
         styles.wrapper.wrapper,
+        {
+          backgroundColor: palette.get('background'),
+        },
         active ? { borderColor: palette.get('primary') } : {},
         wrapperStyle || {},
         error ? styles.wrapper.wrapperError : {},
