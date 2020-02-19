@@ -102,14 +102,12 @@ const BackButton = ({
     onPress={onPress}
     style={[
       disabled ? styles.button.disabled : {},
-      {
-        height: 44,
-      },
     ]}
   >
     <View
       row
       center
+      height={44}
     >
       <RNEIcon
         type="ionicon"
