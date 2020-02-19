@@ -24,7 +24,7 @@ export default ({
     style={[
       {
         alignItems: 'center',
-        borderRadius: full ? 0 : 4,
+        borderRadius: full ? 0 : 6,
         backgroundColor: backgroundColor || palette.get('primary'),
       },
       margin ? parsePaddingMargin(margin, 'margin') : {},
