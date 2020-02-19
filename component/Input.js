@@ -46,6 +46,7 @@ const Wrapper = ({
   LabelComponent = Text,
   labelColor,
   error,
+  errorColor = 'rgb(214,48,28)',
   children,
 }) => (
   <View style={[styles.wrapper.container, containerStyle || {}]}>
@@ -84,7 +85,7 @@ const Wrapper = ({
         ? (
           <Text
             bold
-            color="rgb(214,48,28)"
+            color={errorColor}
             size="0.75rem"
             padding="2 0 0 2"
           >
@@ -106,6 +107,7 @@ const Input = forwardRef((
     label,
     labelColor,
     error = null,
+    errorColor,
     LabelComponent,
     BeforeComponent = null,
     AfterComponent = null,
@@ -124,6 +126,7 @@ const Input = forwardRef((
       LabelComponent={LabelComponent}
       labelColor={labelColor}
       error={error}
+      errorColor={errorColor}
     >
       {BeforeComponent}
       <RNEInput
