@@ -32,6 +32,7 @@ export default ({
         .bold()
         .color(color)
         .size(size)
+        .toObject(),
     ]}
   />
 );
