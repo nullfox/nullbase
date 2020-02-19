@@ -14,6 +14,7 @@ import TextBuilder from './style/text';
 import withStorage from './mst/withStorage';
 import createApplication from './mst/createApplication';
 
+import Button from './component/Button';
 import NavbarScreen from './component/NavbarScreen';
 import Screen from './component/Screen';
 import Text from './component/Text';
@@ -36,6 +37,7 @@ const MST = {
 };
 
 const Component = {
+  Button,
   NavbarScreen,
   Screen,
   Text,
