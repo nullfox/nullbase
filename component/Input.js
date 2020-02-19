@@ -41,12 +41,18 @@ const Wrapper = ({
   children,
 }) => (
   <View style={[styles.wrapper.container, containerStyle || {}]}>
-    <LabelComponent
-      bold
-      padding="0 0 6 0"
-    >
-      {label}
-    </LabelComponent>
+    {
+      label
+        ? (
+          <LabelComponent
+            bold
+            padding="0 0 6 0"
+          >
+            {label}
+          </LabelComponent>
+        )
+        : null
+    }
 
     <View
       style={[
