@@ -7,13 +7,16 @@ import React, {
 import {
   Keyboard,
   Platform,
-  KeyboardAvoidingView,
   View,
 } from 'react-native';
 
 import {
   Formik,
 } from 'formik';
+
+import {
+  KeyboardAwareScrollView,
+} from 'react-native-keyboard-aware-scroll-view';
 
 import * as Yup from 'yup';
 
@@ -148,9 +151,8 @@ class Form extends Component {
             this.formikSubmit = props.submitForm;
 
             return (
-              <KeyboardAvoidingView
+              <KeyboardAwareScrollView
                 style={[styles.wrapper, containerStyle || {}]}
-                {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
               >
                 {
                   fieldKeys.map(key => (
@@ -234,7 +236,7 @@ class Form extends Component {
                     </Fragment>
                   ))
                 }
-              </KeyboardAvoidingView>
+              </KeyboardAwareScrollView>
             );
           }
         }
