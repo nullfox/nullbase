@@ -10,6 +10,7 @@ import Text from './Text';
 import View from './View';
 
 import { palette } from '../style/color';
+import { parsePaddingMargin } from '../style/size';
 import TextBuilder from '../style/text';
 
 const styles = {
@@ -66,6 +67,7 @@ const Wrapper = ({
         {
           backgroundColor: palette.get('background'),
         },
+        parsePaddingMargin(2),
         active ? { borderColor: palette.get('primary') } : {},
         wrapperStyle || {},
         error ? styles.wrapper.wrapperError : {},

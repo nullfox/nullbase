@@ -37,7 +37,6 @@ const styles = {
     },
 
     inputContainer: {
-      backgroundColor: '#f1f1f1',
       borderBottomWidth: 0,
       borderRadius: 4,
       paddingTop: 2,
