@@ -166,6 +166,7 @@ class Form extends Component {
 
                         <Input
                           testID={`input-${key}`}
+                          label={fields[key].label}
                           blurOnSubmit={!_.isUndefined(fields[key].blur) ? fields[key].blur : Platform.OS === 'android'}
                           ref={this.inputs.get(key)}
                           errorMessage={formErrors[key]}
