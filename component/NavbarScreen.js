@@ -54,6 +54,9 @@ const IconButton = ({
     containerStyle={[
       styles.button.icon,
       disabled ? styles.button.disabled : {},
+      {
+        height: 44,
+      },
     ]}
     color={palette.get('background')}
     size={20}
@@ -72,6 +75,9 @@ const TextButton = ({
     onPress={onPress}
     style={[
       disabled ? styles.button.disabled : {},
+      {
+        height: 44,
+      },
     ]}
   >
     <Text
@@ -96,6 +102,9 @@ const BackButton = ({
     onPress={onPress}
     style={[
       disabled ? styles.button.disabled : {},
+      {
+        height: 44,
+      },
     ]}
   >
     <View
