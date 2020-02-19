@@ -12,16 +12,14 @@ import {
 } from 'react-native';
 
 import {
-  Input,
-} from 'react-native-elements';
-
-import {
   Formik,
 } from 'formik';
 
 import * as Yup from 'yup';
 
 import _ from 'lodash';
+
+import Input from './Input';
 
 import TextBuilder from '../style/text';
 
