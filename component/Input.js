@@ -100,9 +100,9 @@ const Input = forwardRef((
     containerStyle = {},
     wrapperStyle = {},
     active = false,
-    label = '',
+    label,
     error = null,
-    LabelComponent = null,
+    LabelComponent,
     BeforeComponent = null,
     AfterComponent = null,
     ...rest
