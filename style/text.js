@@ -74,6 +74,7 @@ export default class Text {
   }
 
   extraBold() {
+    this.color('red');
     return this.addStyle('fontWeight', '800');
   }
 
