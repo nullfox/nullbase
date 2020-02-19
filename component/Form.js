@@ -14,10 +14,6 @@ import {
   Formik,
 } from 'formik';
 
-import {
-  KeyboardAwareScrollView,
-} from 'react-native-keyboard-aware-scroll-view';
-
 import * as Yup from 'yup';
 
 import _ from 'lodash';
@@ -151,9 +147,7 @@ class Form extends Component {
             this.formikSubmit = props.submitForm;
 
             return (
-              <KeyboardAwareScrollView
-                style={[styles.wrapper, containerStyle || {}]}
-              >
+              <View style={[styles.wrapper, containerStyle || {}]}>
                 {
                   fieldKeys.map(key => (
                     <Fragment key={key}>
@@ -236,7 +230,7 @@ class Form extends Component {
                     </Fragment>
                   ))
                 }
-              </KeyboardAwareScrollView>
+              </View>
             );
           }
         }
