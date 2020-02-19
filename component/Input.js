@@ -1,5 +1,9 @@
 import React, { forwardRef, useState } from 'react'
 
+import {
+  Input as RNEInput,
+} from 'react-native-elements';
+
 import _ from 'lodash';
 
 import Text from './Text';
@@ -115,7 +119,7 @@ const Input = forwardRef((
       error={error}
     >
       {BeforeComponent}
-      <Input
+      <RNEInput
         {...rest}
         ref={ref}
         inputContainerStyle={{ borderBottomWidth: 0 }}

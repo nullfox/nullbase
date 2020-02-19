@@ -168,7 +168,63 @@ class Form extends Component {
                         <Input
                           testID={`input-${key}`}
                           blurOnSubmit={!_.isUndefined(fields[key].blur) ? fields[key].blur : Platform.OS === 'android'}
-                          
+                          ref={this.inputs.get(key)}
+                          errorMessage={formErrors[key]}
+                          placeholder={fields[key].placeholder}
+                          containerStyle={[
+                            styles.input.container,
+                            containerStyle || {},
+                            fields[key].containerStyle || {},
+                          ]}
+                          inputContainerStyle={[
+                            styles.input.inputContainer,
+                            inputContainerStyle || {},
+                            fields[key].inputContainerStyle || {},
+                          ]}
+                          inputStyle={[styles.input.input, inputStyle || {}]}
+                          errorStyle={styles.input.error}
+                          onChangeText={(text) => {
+                            if (fields[key].onChange) {
+                              fields[key].onChange(text);
+                            }
+
+                            props.handleChange(key)(text);
+                          }}
+                          onFocus={() => {
+                            if (fields[key].onFocus) {
+                              fields[key].onFocus();
+                            }
+                          }}
+                          onBlur={() => {
+                            if (fields[key].onBlur) {
+                              fields[key].onBlur();
+                            }
+
+                            setTimeout(() => props.handleBlur(key), 1);
+                          }}
+                          onSubmitEditing={() => {
+                            if (key !== _.last(fieldKeys)) {
+                              this.inputs.get(
+                                fieldKeys[_.indexOf(fieldKeys, key) + 1],
+                              ).current.focus();
+                            } else {
+                              props.submitForm();
+                            }
+                          }}
+                          value={props.values[key]}
+                          secureTextEntry={fields[key].secure || false}
+                          {...(fields[key].inputProps || {})}
+                          {
+                            ...(
+                              fields[key].testID
+                                ? {
+                                  testID: fields[key].testID,
+                                  accessible: true,
+                                  accessibilityLabel: fields[key].testID,
+                                }
+                                : {}
+                            )
+                          }
                         />
 
                         {fields[key].rightView || null}
