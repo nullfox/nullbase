@@ -1,43 +1,37 @@
 import React from 'react';
 
 import {
-  TouchableOpacity,
-} from 'react-native';
+  Button,
+} from 'react-native-elements';
 
 import { parsePaddingMargin } from '../style/size';
 import { palette } from '../style/color';
-
-import Text from './Text';
+import TextBuilder from '../style/text';
 
 export default ({
   full = false,
-  padding = 10,
   margin,
-  style = {},
-  text,
-  onPress,
+  color = 'white',
+  size = '1.1rem',
   backgroundColor,
   ...rest
 }) => (
-  <TouchableOpacity
-    onPress={onPress}
-    style={[
+  <Button
+    {...rest}
+    buttonStyle={[
       {
-        alignItems: 'center',
         borderRadius: full ? 0 : 6,
         backgroundColor: backgroundColor || palette.get('primary'),
       },
+    ]}
+    containerStyle={[
       margin ? parsePaddingMargin(margin, 'margin') : {},
-      padding ? parsePaddingMargin(padding) : {},
-    ].concat(style)}
-  >
-    <Text
-      bold
-      color="white"
-      size="1.1rem"
-      {...rest}
-    >
-      {text}
-    </Text>
-  </TouchableOpacity>
+    ]}
+    titleStyle={[
+      TextBuilder.factory()
+        .bold()
+        .color(color)
+        .size(size)
+    ]}
+  />
 );
