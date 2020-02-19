@@ -44,6 +44,7 @@ const Wrapper = ({
   active,
   label,
   LabelComponent = Text,
+  labelColor,
   error,
   children,
 }) => (
@@ -53,6 +54,7 @@ const Wrapper = ({
         ? (
           <LabelComponent
             bold
+            color={labelColor || TextBuilder.getDefaultStyles().color}
             size="0.8rem"
             padding="0 0 6 0"
           >
@@ -102,6 +104,7 @@ const Input = forwardRef((
     wrapperStyle = {},
     active = false,
     label,
+    labelColor,
     error = null,
     LabelComponent,
     BeforeComponent = null,
@@ -119,6 +122,7 @@ const Input = forwardRef((
       wrapperStyle={[{ padding: 0 }, wrapperStyle]}
       label={label}
       LabelComponent={LabelComponent}
+      labelColor={labelColor}
       error={error}
     >
       {BeforeComponent}
