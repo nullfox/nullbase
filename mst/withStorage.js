@@ -83,18 +83,23 @@ const WithStorage = options => (
               }
             ));
 
-            patches.push({
-              op: 'replace',
-              path: '/loaded',
-              value: true,
-            });
-
             console.log('Applying patches', patches);
 
             applyPatch(self, patches);
-
-            loaded = true;
           }
+
+          applyPatch(
+            self,
+            [
+              {
+                op: 'replace',
+                path: '/loaded',
+                value: true,
+              },
+            ],
+          );
+
+          loaded = true;
 
           if (autoSave) {
             enableSaving();
