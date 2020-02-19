@@ -168,21 +168,6 @@ class Form extends Component {
                         <Input
                           testID={`input-${key}`}
                           blurOnSubmit={!_.isUndefined(fields[key].blur) ? fields[key].blur : Platform.OS === 'android'}
-                          ref={this.inputs.get(key)}
-                          errorMessage={formErrors[key]}
-                          placeholder={fields[key].placeholder}
-                          containerStyle={[
-                            styles.input.container,
-                            containerStyle || {},
-                            fields[key].containerStyle || {},
-                          ]}
-                          inputContainerStyle={[
-                            styles.input.inputContainer,
-                            inputContainerStyle || {},
-                            fields[key].inputContainerStyle || {},
-                          ]}
-                          inputStyle={[styles.input.input, inputStyle || {}]}
-                          errorStyle={styles.input.error}
                           
                         />
 
