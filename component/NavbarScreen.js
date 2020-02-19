@@ -134,6 +134,7 @@ const BackButton = ({
 
 const NavbarScreen = ({
   children,
+  backgroundColor,
   containerStyle,
   title = '',
   testId,
@@ -158,6 +159,7 @@ const NavbarScreen = ({
 
   const innerChildren = (
     <View
+      backgroundColor={backgroundColor || palette.get('background')}
       flex
       pinchHorizontal
       {...rest}
