@@ -10,6 +10,10 @@ import {
   Icon as RNEIcon,
 } from 'react-native-elements';
 
+import {
+  KeyboardAwareScrollView,
+} from 'react-native-keyboard-aware-scroll-view';
+
 import Screen from './Screen';
 import Text from './Text';
 import View from './View';
@@ -42,6 +46,11 @@ const styles = {
 
   container: {
     borderBottomWidth: 0,
+  },
+
+  keyboardView: {
+    backgroundColor: palette.get('background'),
+    flex: 1,
   },
 };
 
@@ -128,6 +137,8 @@ const NavbarScreen = ({
   containerStyle,
   title = '',
   testId,
+  keyboardAware,
+  keyboardOffset,
   TitleComponent,
   LeftComponent,
   RightComponent,
@@ -144,6 +155,16 @@ const NavbarScreen = ({
         .toObject()
     ),
   };
+
+  const innerChildren = (
+    <View
+      flex
+      pinchHorizontal
+      {...rest}
+    >
+      {children}
+    </View>
+  );
 
   return (
     <Screen
@@ -173,13 +194,24 @@ const NavbarScreen = ({
         rightButton={RightComponent}
       />
 
-      <View
-        flex
-        pinchHorizontal
-        {...rest}
-      >
-        {children}
-      </View>
+      {
+        keyboardAware
+        ? (
+          <KeyboardAwareScrollView
+            {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
+            style={[
+              styles.keyboardView,
+              {
+                backgroundColor: backgroundColor || palette.get('background'),
+              },
+            ]}
+            keyboardOffset={keyboardOffset || 0}
+          >
+            {innerChildren}
+          </KeyboardAwareScrollView>
+        )
+        : innerChildren
+      }
     </Screen>
   );
 };
