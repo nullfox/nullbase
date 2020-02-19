@@ -55,7 +55,7 @@ const IconButton = ({
       styles.button.icon,
       disabled ? styles.button.disabled : {},
     ]}
-    color={palette.get('primary')}
+    color={palette.get('background')}
     size={20}
     Component={TouchableOpacity}
     {...rest}
@@ -76,7 +76,7 @@ const TextButton = ({
   >
     <Text
       bold
-      color={palette.get('primary')}
+      color={palette.get('background')}
       padding="0 0 2 0"
       margin="0 2.5%w"
     >
@@ -107,11 +107,11 @@ const BackButton = ({
         name="ios-arrow-back"
         {...rest}
         containerStyle={styles.button.back}
-        color={palette.get('primary')}
+        color={palette.get('background')}
         size={20}
       />
 
-      <Text bold color={palette.get('primary')}>{text}</Text>
+      <Text bold color={palette.get('background')}>{text}</Text>
     </View>
   </TouchableOpacity>
 );
