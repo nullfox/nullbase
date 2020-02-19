@@ -89,6 +89,8 @@ const WithStorage = options => (
               value: true,
             });
 
+            console.log('Applying patches', patches);
+
             applyPatch(self, patches);
 
             loaded = true;
