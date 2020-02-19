@@ -111,7 +111,7 @@ const BackButton = ({
         size={20}
       />
 
-      <Text style={styles.back.text}>{text}</Text>
+      <Text bold color={palette.get('primary')}>{text}</Text>
     </View>
   </TouchableOpacity>
 );
