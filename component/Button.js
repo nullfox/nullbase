@@ -22,9 +22,9 @@ export default ({
     onPress={onPress}
     style={[
       {
+        alignItems: 'center',
         borderRadius: 4,
         backgroundColor: backgroundColor || palette.get('primary'),
-        textAlign: 'center',
       },
       margin ? parsePaddingMargin(margin, 'margin') : {},
       padding ? parsePaddingMargin(padding) : {},
