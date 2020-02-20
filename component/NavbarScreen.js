@@ -55,6 +55,7 @@ const styles = {
 };
 
 const IconButton = ({
+  color,
   disabled,
   ...rest
 }) => (
@@ -67,7 +68,7 @@ const IconButton = ({
         height: 44,
       },
     ]}
-    color={palette.get('background')}
+    color={color || palette.get('background')}
     size={20}
     Component={TouchableOpacity}
     {...rest}
@@ -75,6 +76,7 @@ const IconButton = ({
 );
 
 const TextButton = ({
+  color,
   disabled,
   text,
   onPress,
@@ -91,7 +93,7 @@ const TextButton = ({
   >
     <Text
       bold
-      color={palette.get('background')}
+      color={color || palette.get('background')}
       padding="0 0 2 0"
       margin="0 2.5%w"
     >
@@ -101,6 +103,7 @@ const TextButton = ({
 );
 
 const BackButton = ({
+  color,
   disabled,
   text = 'Back',
   onPress,
@@ -123,11 +126,11 @@ const BackButton = ({
         name="ios-arrow-back"
         {...rest}
         containerStyle={styles.button.back}
-        color={palette.get('background')}
+        color={color || palette.get('background')}
         size={20}
       />
 
-      <Text bold color={palette.get('background')}>{text}</Text>
+      <Text bold color={color || palette.get('background')}>{text}</Text>
     </View>
   </TouchableOpacity>
 );
@@ -138,6 +141,7 @@ const NavbarScreen = ({
   containerStyle,
   title = '',
   testId,
+  navbarColor,
   keyboardAware,
   keyboardOffset,
   TitleComponent,
@@ -172,7 +176,8 @@ const NavbarScreen = ({
     <Screen
       testId={testId}
       containerStyle={containerStyle || {}}
-      topInsetColor={palette.get('navbar')}
+      backgroundColor={backgroundColor || palette.get('background')}
+      topInsetColor={navbarColor || palette.get('navbar')}
     >
       <Navbar
         title={(
@@ -190,7 +195,7 @@ const NavbarScreen = ({
         statusBar={{
           hidden: true,
         }}
-        tintColor={palette.get('navbar')}
+        tintColor={navbarColor || palette.get('navbar')}
         containerStyle={styles.container}
         leftButton={LeftComponent}
         rightButton={RightComponent}

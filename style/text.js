@@ -61,6 +61,10 @@ export default class Text {
     return this.addStyle('color', color);
   }
 
+  font(family) {
+    return this.addStyle('fontFamily', family);
+  }
+
   thin() {
     return this.addStyle('fontWeight', '300');
   }

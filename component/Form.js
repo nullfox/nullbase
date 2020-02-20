@@ -115,6 +115,7 @@ class Form extends Component {
       inputWrapperStyle,
       fields,
       onSubmit,
+      onError,
     } = this.props;
 
     const {
@@ -142,6 +143,10 @@ class Form extends Component {
               this.setState({
                 formErrors: !props.isValid ? props.errors : {},
               });
+
+              if (!props.isValid) {
+                onError(props.errors);
+              }
             }
 
             this.formikSubmit = props.submitForm;
@@ -166,6 +171,7 @@ class Form extends Component {
                           blurOnSubmit={!_.isUndefined(fields[key].blur) ? fields[key].blur : Platform.OS === 'android'}
                           ref={this.inputs.get(key)}
                           error={formErrors[key]}
+                          returnKeyType={key === _.last(fieldKeys) ? 'done' : 'next'}
                           placeholder={fields[key].placeholder}
                           containerStyle={[
                             styles.input.container,
