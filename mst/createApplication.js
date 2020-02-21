@@ -14,9 +14,9 @@ import {
 
 import withStorage from './withStorage';
 
-export default (props = {}, name = 'Application', storageOptions = {}) => (
+export default (props = {}, storageOptions = {}) => (
   types.model(
-    name,
+    'Application',
     {
       ...props,
       bootstrapped: types.optional(types.boolean, false),
@@ -26,7 +26,7 @@ export default (props = {}, name = 'Application', storageOptions = {}) => (
     .actions((self) => ({
       afterCreate() {
         addMiddleware(self, actionLogger);
-        onSnapshot(self, console.log.bind(console, `${name} Snapshot:`));
+        onSnapshot(self, console.log.bind(console, 'Application Snapshot:'));
       },
     }))
     .actions((self) => {
