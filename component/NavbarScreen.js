@@ -88,6 +88,7 @@ const TextButton = ({
       disabled ? styles.button.disabled : {},
       {
         height: 44,
+        justifyContent: 'center',
       },
     ]}
   >
