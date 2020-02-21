@@ -14,10 +14,14 @@ import {
 
 import withStorage from './withStorage';
 
-export default (props = {}, name = 'Application') => (
+export default (props = {}, name = 'Application', storageOptions = {}) => (
   types.model(
     name,
-    props,
+    {
+      ...props,
+      bootstrapped: types.optional(types.boolean, false),
+      loading: types.optional(types.boolean, false),
+    },
   )
     .actions((self) => ({
       afterCreate() {
@@ -63,13 +67,16 @@ export default (props = {}, name = 'Application') => (
   
           return navigator.goBack();
         },
+
+        setLoading(bool) {
+          self.loading = bool;
+        },
       };
     })
     .extend(
       withStorage({
         adapter: withStorage.Adapter.Secure,
-        only: [],
-        except: [],
+        ...storageOptions,
       }),
     )
 );

@@ -14,7 +14,7 @@ const WithStorage = options => (
   (self) => {
     let disposer;
 
-    let loaded = false;
+    let bootstrapped = false;
 
     const key = _.get(options, 'key', getType(self).name);
     const autoSave = _.get(options, 'autoSave', true);
@@ -60,12 +60,12 @@ const WithStorage = options => (
 
     return {
       actions: {
-        hasLoaded() {
-          return loaded;
+        hasBootstrapped() {
+          return bootstrapped;
         },
 
         load: flow(function* load() {
-          if (loaded) {
+          if (bootstrapped) {
             return self;
           }
 
@@ -93,13 +93,13 @@ const WithStorage = options => (
             [
               {
                 op: 'replace',
-                path: '/loaded',
+                path: '/bootstrapped',
                 value: true,
               },
             ],
           );
 
-          loaded = true;
+          bootstrapped = true;
 
           if (autoSave) {
             enableSaving();
