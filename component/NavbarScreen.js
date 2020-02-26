@@ -22,7 +22,10 @@ import TextBuilder from '../style/text';
 
 import { percentWidth } from '../style/size';
 
-import { palette } from '../style/color';
+import {
+  lighten,
+  palette,
+} from '../style/color';
 
 const styles = {
   button: {
@@ -197,7 +200,10 @@ const NavbarScreen = ({
           hidden: true,
         }}
         tintColor={navbarColor || palette.get('navbar')}
-        containerStyle={styles.container}
+        containerStyle={{
+          ...styles.container,
+          borderBottomColor: lighten(palette.get('navbar'), 0.15)
+        }}
         leftButton={LeftComponent}
         rightButton={RightComponent}
       />
