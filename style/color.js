@@ -12,6 +12,7 @@ const darken = operation('darken');
 const lighten = operation('lighten');
 const fade = operation('fade');
 const alpha = operation('alpha');
+const desaturate = operation('desaturate');
 
 export {
   palette,
@@ -19,4 +20,5 @@ export {
   lighten,
   fade,
   alpha,
+  desaturate,
 };

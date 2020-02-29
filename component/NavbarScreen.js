@@ -48,7 +48,7 @@ const styles = {
   },
 
   container: {
-    borderBottomWidth: 0,
+    borderBottomWidth: 1,
   },
 
   keyboardView: {
@@ -202,7 +202,7 @@ const NavbarScreen = ({
         tintColor={navbarColor || palette.get('navbar')}
         containerStyle={{
           ...styles.container,
-          borderBottomColor: lighten(palette.get('navbar'), 0.15)
+          borderBottomColor: lighten(navbarColor || palette.get('navbar'), 0.15)
         }}
         leftButton={LeftComponent}
         rightButton={RightComponent}

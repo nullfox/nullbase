@@ -2,8 +2,11 @@ import React, { Fragment } from 'react';
 
 import {
   Platform,
-  SafeAreaView,
 } from 'react-native';
+
+import {
+  useSafeArea,
+} from 'react-native-safe-area-context';
 
 import {
   KeyboardAwareScrollView,
@@ -16,6 +19,8 @@ import {
   percentHeight,
   parsePaddingMargin,
 } from '../style/size';
+
+import View from './View';
 
 import { palette } from '../style/color';
 
@@ -48,47 +53,66 @@ export default ({
   style,
   testId,
   ...rest
-}) => (
-  <Fragment>
-    <SafeAreaView
-      style={[
-        styles.top,
-        {
-          backgroundColor: topInsetColor || palette.get('topInset')
-        },
-      ]}
-    />
-    <SafeAreaView
-      {...testId ? writeTestId(testId) : {}}
-      style={[
-        styles.main,
-        {
-          backgroundColor: backgroundColor || palette.get('background'),
-          paddingHorizontal: (pinch || pinchHorizontal) ? percentWidth(5) : 0,
-          paddingVertical: (pinch || pinchVertical) ? percentHeight(2.5) : 0,
-        },
-        margin ? parsePaddingMargin(margin, 'margin') : {},
-        padding ? parsePaddingMargin(padding) : {},
-      ].concat(style)}
-    >
-      {
-        keyboardAware
-          ? (
-            <KeyboardAwareScrollView
-              {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
-              style={[
-                styles.keyboardView,
-                {
-                  backgroundColor: backgroundColor || palette.get('background'),
-                },
-              ]}
-              keyboardOffset={keyboardOffset || 0}
-            >
-              {children}
-            </KeyboardAwareScrollView>
-          )
-          : children
-        }
-    </SafeAreaView>
-  </Fragment>
-);
+}) => {
+  const insets = useSafeArea();
+
+  return (
+    (
+      <Fragment>
+        <View
+          style={[
+            styles.top,
+            {
+              backgroundColor: topInsetColor || palette.get('topInset'),
+              height: insets.top,
+            },
+          ]}
+        />
+        <View
+          style={[
+            styles.main,
+            {
+              backgroundColor: 'red',
+              paddingBottom: insets.bottom,
+              paddingLeft: insets.left,
+              paddingRight: insets.right,
+            }
+          ]}
+        >
+          <View
+            {...testId ? writeTestId(testId) : {}}
+            style={[
+              styles.main,
+              {
+                backgroundColor: backgroundColor || palette.get('background'),
+                paddingHorizontal: (pinch || pinchHorizontal) ? percentWidth(5) : 0,
+                paddingVertical: (pinch || pinchVertical) ? percentHeight(2.5) : 0,
+              },
+              margin ? parsePaddingMargin(margin, 'margin') : {},
+              padding ? parsePaddingMargin(padding) : {},
+            ].concat(style)}
+          >
+            {
+              keyboardAware
+                ? (
+                  <KeyboardAwareScrollView
+                    {...(Platform.OS === 'ios' ? { behavior: 'padding' } : {})}
+                    style={[
+                      styles.keyboardView,
+                      {
+                        backgroundColor: backgroundColor || palette.get('background'),
+                      },
+                    ]}
+                    keyboardOffset={keyboardOffset || 0}
+                  >
+                    {children}
+                  </KeyboardAwareScrollView>
+                )
+                : children
+              }
+          </View>
+        </View>
+      </Fragment>
+    )
+  );
+};

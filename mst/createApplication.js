@@ -68,6 +68,10 @@ export default (props = {}, storageOptions = {}) => (
           return navigator.goBack();
         },
 
+        setBootstrapped(bool) {
+          self.bootstrapped = bool;
+        },
+
         setLoading(bool) {
           self.loading = bool;
         },
