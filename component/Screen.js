@@ -72,7 +72,7 @@ export default ({
           style={[
             styles.main,
             {
-              backgroundColor: 'red',
+              backgroundColor: backgroundColor || palette.get('background'),
               paddingBottom: insets.bottom,
               paddingLeft: insets.left,
               paddingRight: insets.right,
