@@ -62,6 +62,8 @@ const styles = {
   },
 };
 
+let defaultStyles = {};
+
 class Form extends Component {
   constructor(props) {
     super(props);
@@ -71,6 +73,10 @@ class Form extends Component {
     };
 
     this.setupFields();
+  }
+
+  static setDefaultStyles(styles = {}) {
+    defaultStyles = styles;
   }
 
   setupFields() {
@@ -152,13 +158,14 @@ class Form extends Component {
             this.formikSubmit = props.submitForm;
 
             return (
-              <View style={[styles.wrapper, containerStyle || {}]}>
+              <View style={[styles.wrapper, defaultStyles.wrapper || {}, containerStyle || {}]}>
                 {
                   fieldKeys.map(key => (
                     <Fragment key={key}>
                       <View
                         style={[
                           styles.input.wrapper,
+                          defaultStyles.inputWrapperStyle || {},
                           inputWrapperStyle || {},
                           fields[key].inputWrapperStyle || {},
                         ]}
@@ -175,15 +182,17 @@ class Form extends Component {
                           placeholder={fields[key].placeholder}
                           containerStyle={[
                             styles.input.container,
+                            defaultStyles.containerStyle || {},
                             containerStyle || {},
                             fields[key].containerStyle || {},
                           ]}
                           inputContainerStyle={[
                             styles.input.inputContainer,
+                            defaultStyles.inputContainerStyle || {},
                             inputContainerStyle || {},
                             fields[key].inputContainerStyle || {},
                           ]}
-                          inputStyle={[styles.input.input, inputStyle || {}]}
+                          inputStyle={[styles.input.input, defaultStyles.input || {}, inputStyle || {}]}
                           errorStyle={styles.input.error}
                           onChangeText={(text) => {
                             if (fields[key].onChange) {
