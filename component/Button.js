@@ -9,6 +9,7 @@ import { palette } from '../style/color';
 import TextBuilder from '../style/text';
 
 export default ({
+  fill = false,
   full = false,
   margin,
   color = 'white',
@@ -25,6 +26,7 @@ export default ({
       },
     ]}
     containerStyle={[
+      fill ? { alignSelf: 'stretch' } : {},
       margin ? parsePaddingMargin(margin, 'margin') : {},
     ]}
     titleStyle={[
