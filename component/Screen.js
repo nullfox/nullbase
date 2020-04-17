@@ -52,6 +52,7 @@ export default ({
   padding,
   style,
   testId,
+  insetBottom = true,
   ...rest
 }) => {
   const insets = useSafeArea();
@@ -73,7 +74,7 @@ export default ({
             styles.main,
             {
               backgroundColor: backgroundColor || palette.get('background'),
-              paddingBottom: insets.bottom,
+              paddingBottom: insetBottom ? insets.bottom : 0,
               paddingLeft: insets.left,
               paddingRight: insets.right,
             }
