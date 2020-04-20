@@ -19,6 +19,7 @@ const WithStorage = options => (
     const key = _.get(options, 'key', getType(self).name);
     const autoSave = _.get(options, 'autoSave', true);
     const adapter = _.get(options, 'adapter');
+    const reviver = _.get(options, 'reviver', val => val);
 
     if (!adapter) {
       throw new Error('No adapter supplied');
@@ -83,7 +84,7 @@ const WithStorage = options => (
               {
                 op: 'replace',
                 path: `/${patchKey}`,
-                value: data[patchKey],
+                value: reviver(data[patchKey]),
               }
             ));
 
