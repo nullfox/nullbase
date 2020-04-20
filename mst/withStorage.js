@@ -64,6 +64,10 @@ const WithStorage = options => (
           return bootstrapped;
         },
 
+        async fetch() {
+          return adapter.load(key);
+        },
+
         load: flow(function* load() {
           if (bootstrapped) {
             return self;
