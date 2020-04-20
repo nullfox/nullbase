@@ -145,6 +145,7 @@ const NavbarScreen = ({
   containerStyle,
   title = '',
   testId,
+  insetBottom = true,
   navbarColor,
   keyboardAware,
   keyboardOffset,
@@ -182,6 +183,7 @@ const NavbarScreen = ({
       containerStyle={containerStyle || {}}
       backgroundColor={backgroundColor || palette.get('background')}
       topInsetColor={navbarColor || palette.get('navbar')}
+      insetBottom={insetBottom}
     >
       <Navbar
         title={(
